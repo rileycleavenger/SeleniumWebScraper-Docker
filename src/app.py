@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, request, send_file
 import os
+import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -15,11 +16,11 @@ from selenium.webdriver.support.ui import Select
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def web_scrape():
+@app.route('/<string:param>', methods=['GET'])
+def web_scrape(param):
     
-    # go to the desired page
-    url = "https://google.com"
+    # add https:// to the url
+    url = "https://" + param
     
     # set up Selenium options 
     options = Options()
@@ -39,8 +40,15 @@ def web_scrape():
     driver.get(url)
     driver.implicitly_wait(10)
     
-    # return page's html
-    return driver.page.source
+    # save page's html to a text file
+    with open('page_source.txt', 'w') as file:
+        file.write(driver.page_source)
+    
+    # close the driver
+    driver.quit()
+    
+    # return the file as a download
+    return send_file('page_source.txt', as_attachment=True)
     
 if __name__ == '__main__':
     # use the PORT environment variable if it's defined, otherwise default to 8080
