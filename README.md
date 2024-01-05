@@ -9,7 +9,7 @@ I created this for developers looking to use Selenium's web driver to web scrape
 git clone https://github.com/rileycleavenger/SeleniumWebScraper-Docker.git
 ```
 ```
-cd SeleniumWebScraper-Docker/src
+cd SeleniumWebScraper-Docker
 ```
 ```
 ./build.sh
