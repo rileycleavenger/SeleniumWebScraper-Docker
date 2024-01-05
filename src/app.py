@@ -1,6 +1,7 @@
 from flask import Flask, request, send_file
 import os
 import logging
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -21,6 +22,9 @@ def web_scrape(param):
     
     # add https:// to the url
     url = "https://" + param
+    
+    print(url)
+    time.sleep(5)
     
     # set up Selenium options 
     options = Options()
