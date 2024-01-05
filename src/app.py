@@ -1,11 +1,5 @@
-from flask import Flask, jsonify
+from flask import Flask
 import os
-import threading
-import re
-import time
-import json
-import logging
-from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -18,8 +12,6 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support.ui import Select
-import firebase_admin
-from firebase_admin import db, credentials
 
 app = Flask(__name__)
 
