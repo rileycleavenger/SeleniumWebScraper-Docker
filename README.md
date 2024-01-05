@@ -16,4 +16,4 @@ cd SeleniumWebScraper-Docker
 ```
 
 ### Simple Scraping
-using a web browser visit `/<insert website to scrape url>` to return a txt file with the page's source code
+using a web browser visit `localhost:8080/<insert website to scrape url>` to return a txt file with the page's source code
