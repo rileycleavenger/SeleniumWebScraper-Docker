@@ -1,0 +1,6 @@
+beautifulsoup4
+selenium
+webdriver_manager
+firebase_admin
+flask
+gunicorn
