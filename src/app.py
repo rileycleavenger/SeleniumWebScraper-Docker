@@ -19,8 +19,13 @@ app = Flask(__name__)
 @app.route('/<string:param>', methods=['GET'])
 def web_scrape(param):
     
+    # edge case
+    if param == "" or param == "favicon.ico":
+        return "Please enter a valid URL"
+    
     # add https:// to the url
     url = "https://" + param
+    print(url)
     
     # set up Selenium options 
     options = Options()
@@ -37,7 +42,9 @@ def web_scrape(param):
     driver.implicitly_wait(25)
 
     # open page
+    time.sleep(10)
     driver.get(url)
+    time.sleep(10)
     driver.implicitly_wait(10)
     
     # save page's html to a text file
